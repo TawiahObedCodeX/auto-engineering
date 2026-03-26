@@ -1,40 +1,25 @@
-import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, DM_Sans } from "next/font/google";
+import type { Metadata } from "next";
+import { Barlow, DM_Sans } from "next/font/google";
 import "./globals.css";
-import { BUSINESS_FULL_NAME, BUSINESS_TAGLINE } from "@/lib/constants";
+import { ThemeProvider } from "@/app/components/theme-provider"; 
+import Navbar from "@/app/components/shared/Navbar";
+import Footer from "@/app/components/shared/Footer";
 
-const barlow = Barlow_Condensed({
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-  variable: "--font-barlow",
-  display: "swap",
+const barlow = Barlow({ 
+  subsets: ["latin"], 
+  weight: ["700", "800"], 
+  variable: "--font-barlow" 
 });
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-dm-sans",
-  display: "swap",
+const dmSans = DM_Sans({ 
+  subsets: ["latin"], 
+  weight: ["400", "500"], 
+  variable: "--font-dm-sans" 
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: BUSINESS_FULL_NAME,
-    template: `%s | ${BUSINESS_FULL_NAME}`,
-  },
-  description: `${BUSINESS_TAGLINE} — Professional auto electrical diagnostics, repairs, and ECU services.`,
-  openGraph: {
-    title: BUSINESS_FULL_NAME,
-    description: BUSINESS_TAGLINE,
-    type: "website",
-    locale: "en_GH",
-  },
-};
-
-export const viewport: Viewport = {
-  themeColor: "#0A192F",
-  width: "device-width",
-  initialScale: 1,
+  title: "AUTOELECTRO | Advanced Engineering",
+  description: "Specialized Vehicle Electrical Diagnostics & Repair",
 };
 
 export default function RootLayout({
@@ -43,13 +28,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${barlow.variable} ${dmSans.variable}`}
-    >
-      <body className="font-body antialiased">
-        {children}
+    <html lang="en" suppressHydrationWarning className={`${barlow.variable} ${dmSans.variable}`}>
+      <body className="font-body antialiased bg-white dark:bg-[#050a14] transition-colors duration-300">
+        <ThemeProvider 
+          attribute="class" 
+          defaultTheme="dark" 
+          enableSystem={false}
+        >
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
