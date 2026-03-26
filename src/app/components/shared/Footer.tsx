@@ -3,7 +3,8 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HiMail, HiPhone, HiChevronRight } from "react-icons/hi";
-import { SiInstagram, SiX, SiGithub, } from "react-icons/si";
+import { SiInstagram, SiX, } from "react-icons/si";
+import { FaFacebookF } from "react-icons/fa";
 import { Terminal, Cpu, Zap, Activity, ShieldCheck, Globe, Database, Command } from "lucide-react";
 
 const Footer = () => {
@@ -58,7 +59,7 @@ const Footer = () => {
             </p>
 
             <div className="flex gap-6">
-              {[SiInstagram, SiX, SiGithub].map((Icon, idx) => (
+              {[SiInstagram, SiX,HiMail,FaFacebookF].map((Icon, idx) => (
                 <Link key={idx} href="#" className="group relative w-14 h-14 border border-white/10 flex items-center justify-center hover:border-electric transition-all duration-500">
                   <div className="absolute inset-0 bg-electric scale-0 group-hover:scale-100 transition-transform duration-300" />
                   <Icon size={22} className="relative z-10 group-hover:text-navy transition-colors" />
@@ -95,7 +96,7 @@ const Footer = () => {
               <div className="space-y-6">
                 <div className="group cursor-pointer">
                   <span className="text-[9px] text-slate-600 block mb-1 font-black tracking-widest">ENCRYPTED_VOICE</span>
-                  <span className="text-xl font-mono text-white group-hover:text-electric transition-colors">+1 (555) 000-LABS</span>
+                  <span className="text-xl font-mono text-white group-hover:text-electric transition-colors">+233 244887773 LABS</span>
                 </div>
                 <div className="group cursor-pointer">
                   <span className="text-[9px] text-slate-600 block mb-1 font-black tracking-widest">DATA_PACKET_SEND</span>
