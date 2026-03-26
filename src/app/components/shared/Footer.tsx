@@ -29,7 +29,7 @@ const Footer = () => {
             initial={{ x: "-100%" }}
             animate={{ x: "200%" }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear", delay: i * 2.5 }}
-            className="absolute top-0 w-1/4 h-full bg-gradient-to-r from-transparent via-electric/5 to-transparent"
+            className="absolute top-0 w-1/4 h-full bg-linear-to-r from-transparent via-electric/5 to-transparent"
           />
         ))}
       </div>
@@ -88,7 +88,7 @@ const Footer = () => {
 
           {/* Contact & Certs - HUD Style */}
           <div className="lg:col-span-4 space-y-12">
-            <div className="p-8 bg-white/[0.02] border border-white/5 space-y-8 backdrop-blur-md">
+            <div className="p-8 bg-white/2 border border-white/5 space-y-8 backdrop-blur-md">
               <h4 className="font-heading uppercase text-[10px] tracking-[0.5em] font-black text-electric flex items-center gap-3">
                 <Globe size={14} /> Global_Uplink
               </h4>
@@ -106,7 +106,7 @@ const Footer = () => {
 
             <div className="grid grid-cols-2 gap-2">
               {["ASE_L3", "ISO_SYNC", "EVSE_III", "CAN_FD"].map((cert) => (
-                <div key={cert} className="py-4 border border-white/5 bg-white/[0.01] flex flex-col items-center justify-center group hover:bg-electric transition-all duration-300 cursor-help">
+                <div key={cert} className="py-4 border border-white/5 bg-white/1 flex flex-col items-center justify-center group hover:bg-electric transition-all duration-300 cursor-help">
                   <span className="text-xs font-black italic group-hover:text-navy">{cert}</span>
                   <span className="text-[6px] uppercase tracking-widest text-slate-500 mt-1 group-hover:text-navy/50">Verified_Node</span>
                 </div>

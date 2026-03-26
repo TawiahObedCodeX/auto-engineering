@@ -14,7 +14,7 @@ const instruments = [
     name: "Thermal Imaging Lab", 
     spec: "FLIR E76 / 0.03°C Sensitivity", 
     use: "Visualizing heat signatures on PCB boards to locate parasitic drains and short-circuited MOSFETs before they fail.",
-    img: "https://images.unsplash.com/photo-1614850523296-e8c1d07ed6a0?q=80&w=1000",
+    img: "http://www.ecufixtool.com/cdn/shop/articles/5-9_1024x.png?v=1715239507",
     tag: "THERMAL_MAPPING"
   },
   { 
@@ -39,7 +39,7 @@ export default function LabPage() {
         <motion.div 
           animate={{ translateY: ["-100%", "200%"] }}
           transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 w-full h-[300px] bg-gradient-to-b from-transparent via-electric/10 to-transparent"
+          className="absolute inset-0 w-full h-[300px] bg-linear-to-b from-transparent via-electric/10 to-transparent"
         />
       </div>
 
@@ -87,7 +87,7 @@ export default function LabPage() {
             >
               {/* Image Side with "HUD" callouts */}
               <div className="w-full lg:w-3/5 relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-electric to-blue-500 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity blur-lg" />
+                <div className="absolute -inset-1 bg-linear-to-r from-electric to-blue-500 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity blur-lg" />
                 <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10">
                   <img src={item.img} alt={item.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" />
                   <div className="absolute inset-0 bg-navy/20" />
@@ -114,7 +114,7 @@ export default function LabPage() {
                 <p className="text-slate-400 text-lg mb-8 leading-relaxed">
                   {item.use}
                 </p>
-                <div className="p-6 bg-white/[0.03] border-l-4 border-electric">
+                <div className="p-6 bg-white/3 border-l-4 border-electric">
                   <div className="text-[10px] uppercase font-black text-slate-500 mb-2">Technical Specification</div>
                   <div className="text-xl font-mono text-white">{item.spec}</div>
                 </div>
@@ -163,7 +163,7 @@ export default function LabPage() {
             { icon: <Gauge />, title: "Stress Testing", desc: "Simulating vehicle loads on components using lab power supplies to ensure stability." },
             { icon: <Activity />, title: "Packet Sniffing", desc: "Isolating specific CAN-Bus packets to find the 'noise' causing network crashes." },
           ].map((item, idx) => (
-            <div key={idx} className="p-10 bg-white/[0.02] border border-white/10 hover:border-electric/50 transition-all group">
+            <div key={idx} className="p-10 bg-white/2 border border-white/10 hover:border-electric/50 transition-all group">
               <div className="text-electric mb-6 transform group-hover:scale-110 transition-transform">{item.icon}</div>
               <h4 className="text-xl font-heading font-bold uppercase mb-4">{item.title}</h4>
               <p className="text-sm text-slate-500 leading-relaxed uppercase tracking-wider">{item.desc}</p>

@@ -113,7 +113,7 @@ export default function VehiclesPage() {
             >
               {/* Image Side */}
               <div className="w-full lg:w-3/5 relative group">
-                <div className="absolute -top-10 -left-10 text-[12rem] font-black italic text-white/[0.03] select-none">0{i+1}</div>
+                <div className="absolute -top-10 -left-10 text-[12rem] font-black italic text-white/3 select-none">0{i+1}</div>
                 <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/5">
                   <img src={tier.img} alt={tier.category} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100" />
                   <div className="absolute inset-0 bg-navy/20" />
@@ -136,14 +136,14 @@ export default function VehiclesPage() {
                 <p className="text-slate-400 text-lg leading-relaxed">{tier.desc}</p>
                 
                 <div className="grid grid-cols-1 gap-4">
-                  <div className="p-6 bg-white/[0.02] border border-white/5 flex justify-between items-center group hover:border-electric transition-all">
+                  <div className="p-6 bg-white/2 border border-white/5 flex justify-between items-center group hover:border-electric transition-all">
                     <div className="flex items-center gap-4">
                       <Radio className="text-electric" size={20} />
                       <span className="text-[10px] uppercase font-bold tracking-widest">Bus Protocol</span>
                     </div>
                     <span className="font-mono text-sm text-white">{tier.stats.bus}</span>
                   </div>
-                  <div className="p-6 bg-white/[0.02] border border-white/5 flex justify-between items-center group hover:border-electric transition-all">
+                  <div className="p-6 bg-white/2 border border-white/5 flex justify-between items-center group hover:border-electric transition-all">
                     <div className="flex items-center gap-4">
                       <Microscope className="text-electric" size={20} />
                       <span className="text-[10px] uppercase font-bold tracking-widest">Logic Tier</span>
@@ -170,7 +170,7 @@ export default function VehiclesPage() {
               { icon: <Settings />, title: "Logic Cloning", desc: "Moving encrypted security data from water-damaged modules to virgin hardware." },
               { icon: <HardDrive />, title: "Data Recovery", desc: "Extracting crash data and EEPROM logs for forensic accident reconstruction." }
             ].map((box, idx) => (
-              <div key={idx} className="p-10 bg-white/[0.01] border border-white/5 hover:bg-electric/5 hover:border-electric transition-all duration-500">
+              <div key={idx} className="p-10 bg-white/1 border border-white/5 hover:bg-electric/5 hover:border-electric transition-all duration-500">
                 <div className="text-electric mb-8">{box.icon}</div>
                 <h4 className="text-xl font-heading font-bold uppercase mb-4">{box.title}</h4>
                 <p className="text-xs text-slate-500 leading-relaxed uppercase tracking-widest">{box.desc}</p>
@@ -186,7 +186,7 @@ export default function VehiclesPage() {
             className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale" 
             alt="CTA BG"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-transparent to-[#020617]" />
+          <div className="absolute inset-0 bg-linear-to-b from-[#020617] via-transparent to-[#020617]" />
           
           <div className="relative z-10 text-center px-6">
             <motion.div 
@@ -208,7 +208,7 @@ export default function VehiclesPage() {
           {["P0011_SYNC", "U0121_COMM", "B1232_SHORT", "P0340_PHASE"].map((log) => (
             <div key={log} className="flex flex-col">
               <span className="text-[10px] font-mono text-electric mb-2 animate-pulse">{log}</span>
-              <div className="h-[1px] w-full bg-white/10" />
+              <div className="h-px w-full bg-white/10" />
               <span className="text-[8px] font-mono text-slate-600 mt-2 uppercase italic tracking-tighter">Verified_at_0.02ms</span>
             </div>
           ))}

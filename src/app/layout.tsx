@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={`${barlow.variable} ${dmSans.variable}`}>
-      <body className="font-body antialiased bg-white dark:bg-[#050a14] transition-colors duration-300">
+      <body className="font-body antialiased bg-white dark:bg-navy transition-colors duration-300">
         <ThemeProvider 
           attribute="class" 
           defaultTheme="dark" 
@@ -37,7 +37,7 @@ export default function RootLayout({
         >
           <div className="flex flex-col min-h-screen">
             <Navbar />
-            <main className="flex-grow">
+            <main className="grow">
               {children}
             </main>
             <Footer />

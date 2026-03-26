@@ -53,7 +53,7 @@ export default function BookPage() {
                  alt="Lab Environment" 
                  className="w-full h-full object-cover grayscale opacity-50"
                />
-               <div className="absolute inset-0 bg-gradient-to-t from-[#020617] to-transparent" />
+               <div className="absolute inset-0 bg-linear-to-t from-[#020617] to-transparent" />
                <div className="absolute bottom-6 left-6 flex items-center gap-3">
                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                  <span className="text-[10px] font-mono text-white/60 font-black">LIVE_LAB_FEED // SECURE</span>
@@ -71,7 +71,7 @@ export default function BookPage() {
                   { icon: <ClipboardCheck />, title: "Pre-Diagnostic", desc: "A mandatory baseline scan fee of $120 is required for all hardware-level forensics." },
                   { icon: <HardDrive />, title: "Log Storage", desc: "All vehicle logs are stored on our local secure servers for 12 months for warranty validation." }
                 ].map((item, idx) => (
-                  <div key={idx} className="p-6 border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all group">
+                  <div key={idx} className="p-6 border border-white/5 bg-white/1 hover:bg-white/3 transition-all group">
                     <div className="flex items-center gap-4 mb-3 text-electric group-hover:translate-x-2 transition-transform">
                       {item.icon}
                       <span className="font-bold uppercase text-xs tracking-widest">{item.title}</span>
@@ -116,13 +116,13 @@ export default function BookPage() {
                   <label className="text-[10px] font-black uppercase tracking-[0.4em] text-electric flex items-center gap-2">
                     <Fingerprint size={12}/> Operator_ID
                   </label>
-                  <input className="w-full bg-transparent border-b border-white/10 py-3 focus:border-electric outline-none font-mono text-sm transition-all focus:bg-white/[0.02]" placeholder="Full Name" />
+                  <input className="w-full bg-transparent border-b border-white/10 py-3 focus:border-electric outline-none font-mono text-sm transition-all focus:bg-white/2" placeholder="Full Name" />
                 </div>
                 <div className="space-y-3">
                   <label className="text-[10px] font-black uppercase tracking-[0.4em] text-electric flex items-center gap-2">
                     <PhoneCall size={12}/> Contact_Sync
                   </label>
-                  <input className="w-full bg-transparent border-b border-white/10 py-3 focus:border-electric outline-none font-mono text-sm transition-all focus:bg-white/[0.02]" placeholder="Email/Phone" />
+                  <input className="w-full bg-transparent border-b border-white/10 py-3 focus:border-electric outline-none font-mono text-sm transition-all focus:bg-white/2" placeholder="Email/Phone" />
                 </div>
               </div>
 
@@ -130,14 +130,14 @@ export default function BookPage() {
                 <label className="text-[10px] font-black uppercase tracking-[0.4em] text-electric flex items-center gap-2">
                   <Cpu size={12}/> Architecture_Model
                 </label>
-                <input className="w-full bg-transparent border-b border-white/10 py-3 focus:border-electric outline-none font-mono text-sm transition-all focus:bg-white/[0.02]" placeholder="Year, Make, Model (e.g., 2026 Lucid Air)" />
+                <input className="w-full bg-transparent border-b border-white/10 py-3 focus:border-electric outline-none font-mono text-sm transition-all focus:bg-white/2" placeholder="Year, Make, Model (e.g., 2026 Lucid Air)" />
               </div>
 
               <div className="space-y-3">
                 <label className="text-[10px] font-black uppercase tracking-[0.4em] text-electric flex items-center gap-2">
                   <AlertCircle size={12}/> Symptom_Log
                 </label>
-                <textarea rows={5} className="w-full bg-transparent border border-white/10 p-4 focus:border-electric outline-none font-mono text-sm transition-all focus:bg-white/[0.02] rounded-lg" placeholder="Enter error codes (DTCs) or describe the electronic failure in detail..." />
+                <textarea rows={5} className="w-full bg-transparent border border-white/10 p-4 focus:border-electric outline-none font-mono text-sm transition-all focus:bg-white/2 rounded-lg" placeholder="Enter error codes (DTCs) or describe the electronic failure in detail..." />
               </div>
 
               <div className="pt-6">

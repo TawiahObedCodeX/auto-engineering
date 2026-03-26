@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <motion.nav 
       style={{ height: navHeight }}
-      className="fixed top-0 w-full z-[100] flex items-center transition-all duration-300"
+      className="fixed top-0 w-full z-100 flex items-center transition-all duration-300"
     >
       {/* --- LAYERED BACKGROUND --- */}
       <div className="absolute inset-0 bg-navy/80 dark:bg-[#020617]/90 backdrop-blur-2xl border-b border-electric/20" />
@@ -31,7 +31,7 @@ const Navbar = () => {
       <motion.div 
         animate={{ opacity: [0.2, 0.5, 0.2], x: ["-100%", "100%"] }}
         transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-        className="absolute top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-electric to-transparent"
+        className="absolute top-0 h-[2px] w-full bg-linear-to-r from-transparent via-electric to-transparent"
       />
 
       <div className="container mx-auto px-6 relative z-10 flex justify-between items-center">
@@ -44,7 +44,7 @@ const Navbar = () => {
           >
             <div className="absolute inset-0 bg-electric blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
             <div className="relative bg-navy border-2 border-electric p-3 rounded-none skew-x-[-10deg]">
-              <SiSpeedtest className="text-electric text-3xl group-hover:rotate-[360deg] transition-transform duration-700" />
+              <SiSpeedtest className="text-electric text-3xl group-hover:rotate-360 transition-transform duration-700" />
             </div>
           </motion.div>
           
@@ -53,7 +53,7 @@ const Navbar = () => {
               AUTO<span className="text-electric italic">ELECTRO</span>
             </span>
             <div className="flex items-center gap-2 mt-1">
-              <span className="h-[1px] w-8 bg-electric/50" />
+              <span className="h-px w-8 bg-electric/50" />
               <span className="text-[9px] uppercase tracking-[0.6em] text-slate-500 font-black">
                 Precision_Lab
               </span>
@@ -132,7 +132,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 bg-[#020617] z-[110] flex flex-col justify-center p-12 lg:hidden"
+            className="fixed inset-0 bg-[#020617] z-110 flex flex-col justify-center p-12 lg:hidden"
           >
             {/* Background Text for Flair */}
             <div className="absolute inset-0 overflow-hidden opacity-5 pointer-events-none select-none">

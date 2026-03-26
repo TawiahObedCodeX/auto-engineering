@@ -67,7 +67,7 @@ export default function ServicesPage() {
         <motion.div 
           animate={{ x: ["-100%", "200%"] }}
           transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 w-[40%] h-full bg-gradient-to-r from-transparent via-electric/5 to-transparent skew-x-12"
+          className="absolute top-0 w-[40%] h-full bg-linear-to-r from-transparent via-electric/5 to-transparent skew-x-12"
         />
       </div>
 
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                 <div className="w-full lg:w-1/2 space-y-10 py-10">
                   <div className="flex items-center gap-6">
                     <div className="text-electric">{service.icon}</div>
-                    <div className="h-[1px] flex-grow bg-white/10" />
+                    <div className="h-px grow bg-white/10" />
                     <span className="font-mono text-xs text-slate-500">[{service.tag}]</span>
                   </div>
 
@@ -138,7 +138,7 @@ export default function ServicesPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {service.details.map((detail, idx) => (
-                      <div key={idx} className="p-6 bg-white/[0.02] border border-white/5 group hover:border-electric transition-all">
+                      <div key={idx} className="p-6 bg-white/2 border border-white/5 group hover:border-electric transition-all">
                         <div className="text-[10px] uppercase font-black text-slate-600 mb-1 tracking-widest">{detail.label}</div>
                         <div className="text-lg font-bold text-white uppercase">{detail.value}</div>
                       </div>
@@ -163,7 +163,7 @@ export default function ServicesPage() {
                 { icon: <PenTool />, step: "02", name: "Logic Re-Code", desc: "Rewriting the module binary to correct the fault." },
                 { icon: <Activity />, step: "03", name: "Stress Test", desc: "Simulating high-heat loads to ensure stability." }
               ].map((item, idx) => (
-                <div key={idx} className="relative p-8 bg-white/[0.02] border border-white/5">
+                <div key={idx} className="relative p-8 bg-white/2 border border-white/5">
                   <div className="text-electric/20 absolute top-4 right-4 text-4xl font-black">{item.step}</div>
                   <div className="text-electric mb-6">{item.icon}</div>
                   <h4 className="text-xl font-bold uppercase mb-2">{item.name}</h4>
