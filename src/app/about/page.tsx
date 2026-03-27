@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, Variants,useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import {
   BiChip,
@@ -19,14 +19,18 @@ import { MdOutlineMemory, MdOutlineSecurity } from "react-icons/md";
 import { RiRadarLine } from "react-icons/ri";
 
 /* ─── Stagger animation helper ──────────────────────────────────────────────── */
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
+const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    show: (i: number = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: "easeOut", // Use a named easing or the fix above
+      },
+    }),
+  };
 
 /* ─── Service data ───────────────────────────────────────────────────────────── */
 const services = [
