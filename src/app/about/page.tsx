@@ -27,7 +27,7 @@ const fadeUp: Variants = {
       transition: {
         duration: 0.8,
         delay: i * 0.1,
-        ease: "easeOut", // Use a named easing or the fix above
+        ease: [0.215, 0.61, 0.355, 1], // TypeScript will now accept this array
       },
     }),
   };
