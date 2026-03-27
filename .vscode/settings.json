@@ -3,6 +3,7 @@
         "ATTESA",
         "AUTEL",
         "contactors",
+        "drivetrains",
         "EEPROM",
         "EVSE",
         "HELLA",
@@ -14,6 +15,7 @@
         "Rivian",
         "supercars",
         "TEKTRONIX",
+        "Telematics",
         "VCMI"
     ]
 }

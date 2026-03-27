@@ -1,10 +1,14 @@
 "use client";
-import Hero from "@/app/components/home/Hero";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-// Using React Icons for a more diverse technical look
-import { BiMicrochip, BiPulse, BiNetworkChart, BiShieldQuarter, BiCodeBlock, BiCommand } from "react-icons/bi";
-import { HiOutlineCpuChip, HiOutlineBolt, HiOutlineGlobeAlt, HiChevronRight } from "react-icons/hi2";
+import { 
+  BiMicrochip, BiPulse, BiNetworkChart, BiShieldQuarter, 
+  BiCodeBlock, BiChip, BiCheckDouble, BiTargetLock 
+} from "react-icons/bi";
+import { 
+  HiOutlineCpuChip, HiOutlineBolt, HiChevronRight, 
+  HiOutlineWrenchScrewdriver, HiOutlineFingerPrint 
+} from "react-icons/hi2";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -14,177 +18,156 @@ export default function Home() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return <div className="bg-[#020617] min-h-screen" />;
+  if (!mounted) return <div className="bg-brand-navy min-h-screen" />;
 
   return (
-    <main ref={containerRef} className="bg-[#020617] text-white selection:bg-electric selection:text-navy">
-      <Hero />
+    <main ref={containerRef} className="bg-brand-navy text-white selection:bg-brand-blue selection:text-brand-navy">
       
       {/* --- 1. THE PERSISTENT TELEMETRY BAR --- */}
-      <div className="sticky top-0 z-50 w-full bg-electric py-3 overflow-hidden border-y border-white/10 backdrop-blur-md">
+      <div className="sticky top-0 z-50 w-full bg-brand-blue py-3 overflow-hidden border-y border-white/10 backdrop-blur-md">
         <motion.div 
-          animate={{ x: [0, -1500] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="flex gap-32 items-center text-navy font-black text-[10px] uppercase tracking-[0.5em]"
+          animate={{ x: [0, -2000] }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="flex gap-32 items-center text-brand-navy font-black text-[10px] uppercase tracking-[0.5em]"
         >
           {[...Array(10)].map((_, i) => (
             <span key={i} className="flex items-center gap-6 whitespace-nowrap">
               <BiPulse size={16} className="animate-pulse" /> 
-              Link: OEM_BOSCH_PRIMARY • Buffer: 0.0001ms • Packet_Loss: 0% • Auth: RSA_4096_STABLE
+              SYSTEM: EAGLE_BRAIN_V4.2 • CHIEF_ENGINEER: PATRICK_TAWIAH • SCANNING: ECU_TCU_BCM • HEALTH: OPTIMIZED
             </span>
           ))}
         </motion.div>
       </div>
 
-      {/* --- 2. CORE INFRASTRUCTURE (GRID) --- */}
-      <section className="py-32 relative overflow-hidden">
-        {/* Decorative Grid Background */}
+      {/* --- 2. HERO & MANIFESTO --- */}
+      <section className="pt-20 lg:pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-             style={{ backgroundImage: `radial-gradient(#00e5ff 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
+             style={{ backgroundImage: `radial-gradient(#38BDF8 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
 
         <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row justify-between items-start mb-32 gap-12">
+          <div className="flex flex-col lg:flex-row justify-between items-start mb-20 gap-12">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="max-w-4xl"
+              className="max-w-5xl"
             >
-              <div className="flex items-center gap-3 text-electric mb-6 font-mono text-xs tracking-[0.7em] font-bold">
-                <BiCodeBlock size={20} /> [ SYSTEM_MANIFESTO ]
+              <div className="flex items-center gap-3 text-brand-blue mb-6 font-mono text-xs tracking-[0.7em] font-bold">
+                <HiOutlineFingerPrint size={20} /> [ LEAD_ENGINEER_STATION ]
               </div>
-              <h2 className="text-7xl md:text-[10rem] font-black uppercase italic leading-[0.8] tracking-tighter">
-                RAW <span className="text-electric">LOGIC.</span> <br /> ZERO NOISE.
-              </h2>
+              <h1 className="text-5xl md:text-8xl lg:text-[10rem] font-heading font-black uppercase italic leading-[0.85] tracking-tighter">
+                EAGLE BRAIN <br /> <span className="text-brand-blue">AUTO SOLUTION.</span>
+              </h1>
             </motion.div>
-            <div className="lg:max-w-md pt-10">
-                <p className="text-slate-400 font-mono text-sm leading-relaxed uppercase tracking-widest border-l-2 border-electric pl-6">
-                    We bridge the gap between mechanical engineering and advanced software forensics. Our lab operates on bit-level manipulation to extract hidden performance.
+            <div className="lg:max-w-md pt-6">
+                <p className="text-slate-400 font-mono text-sm leading-relaxed uppercase tracking-widest border-l-2 border-brand-yellow pl-6">
+                   "WE FIXED COMPLEX ISSUES: THE HEALTH OF YOUR CAR IS OUR CONCERN." Under the leadership of Mr. Patrick Tawiah, we provide factory-grade diagnostic forensics.
                 </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
+      {/* --- 3. THE MASTER TECHNICIAN (Mr. Patrick Tawiah Profile) --- */}
+      <section className="py-20 bg-brand-slate/10 border-y border-white/5">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Profile Image Container */}
+            <div className="lg:col-span-5 relative group">
+              <div className="absolute -inset-4 border border-brand-blue/20 group-hover:border-brand-blue/50 transition-colors duration-700" />
+              <div className="relative aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-1000">
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                  alt="Mr. Patrick Tawiah - Chief Engineer" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-transparent to-transparent" />
+              </div>
+              <div className="absolute bottom-4 left-4 p-6 bg-brand-navy border border-brand-blue/30 backdrop-blur-md">
+                <p className="font-heading font-black italic text-2xl text-white">PATRICK TAWIAH</p>
+                <p className="text-[10px] font-mono text-brand-blue tracking-widest uppercase">Chief Technical Director</p>
+              </div>
+            </div>
+
+            {/* Expertise Content */}
+            <div className="lg:col-span-7 space-y-8">
+               <h2 className="text-4xl lg:text-6xl font-heading font-black uppercase italic leading-tight">
+                THE MAN BEHIND <br/> THE <span className="text-brand-blue">MACHINE.</span>
+              </h2>
+               <p className="text-slate-400 font-mono text-sm uppercase tracking-widest leading-loose">
+                Mr. Patrick Tawiah leads Eagle Brain with a focus on binary precision. From restoring complex car harnesses to their original state to performing dealer-level ECU cloning, his expertise ensures that no "Ghost Error" remains unsolved.
+               </p>
+               
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    "Master of ECU/TCU Logic",
+                    "Car Harness Restoration Specialist",
+                    "Advanced CAN-Bus Forensics",
+                    "Module Programming Expert"
+                  ].map((skill, idx) => (
+                    <div key={idx} className="flex items-center gap-3 p-4 bg-white/5 border border-white/5 hover:border-brand-blue/30 transition-colors">
+                      <BiCheckDouble className="text-brand-blue" />
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest">{skill}</span>
+                    </div>
+                  ))}
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- 4. CORE SERVICES GRID (Specific Business Tasks) --- */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="mb-16">
+            <h3 className="text-brand-yellow font-heading italic text-sm tracking-[0.5em] mb-4">DIAGNOSTIC_COMMAND_CENTER</h3>
+            <div className="h-px w-full bg-gradient-to-r from-brand-yellow via-white/10 to-transparent" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
             {[
-              { t: "Logic Remapping", d: "Customized torque mapping via hex-editor direct injection.", i: <BiMicrochip size={40} />, c: "LEVEL_01" },
-              { t: "CAN-Bus Sniffing", d: "Packet analysis of vehicle network traffic to solve ghost errors.", i: <BiNetworkChart size={40} />, c: "LEVEL_02" },
-              { t: "EEPROM Recovery", d: "Reviving 'bricked' modules through binary identity rebuilding.", i: <BiCodeBlock size={40} />, c: "LEVEL_03" },
-              { t: "Inverter Sync", d: "High-voltage timing alignment for performance EV drivetrains.", i: <HiOutlineBolt size={40} />, c: "LEVEL_04" },
-              { t: "Cryptographic Keys", d: "Generating dealer-level encryption for luxury security modules.", i: <BiShieldQuarter size={40} />, c: "LEVEL_05" },
-              { t: "Global Telematics", d: "Cloud-based diagnostic tunneling for remote fleet audits.", i: <HiOutlineGlobeAlt size={40} />, c: "LEVEL_06" },
+              { t: "ECU & TCM Programming", d: "High-precision mapping and calibration of Engine and Transmission Control Modules.", i: <BiMicrochip size={40} />, c: "01" },
+              { t: "Cloning of All Modules", d: "1:1 bit-perfect cloning of vehicle modules to maintain original factory identity.", i: <BiChip size={40} />, c: "02" },
+              { t: "Read & Write Modules", d: "Direct hex-level binary access to ECU, TCU, and BCM layers for data backup.", i: <BiNetworkChart size={40} />, c: "03" },
+              { t: "Airbag Crash Reset", d: "Post-collision software restoration. Clearing hard-codes for module reuse.", i: <BiShieldQuarter size={40} />, c: "04" },
+              { t: "Restore Car Harness", d: "Complete restoration of complex wiring harnesses back to original factory specs.", i: <HiOutlineWrenchScrewdriver size={40} />, c: "05" },
+              { t: "Fixed Error Codes", d: "Deep forensic analysis of fixed and intermittent codes via OEM protocols.", i: <BiTargetLock size={40} />, c: "06" },
             ].map((item, i) => (
               <motion.div 
                 key={i}
-                whileHover={{ backgroundColor: "rgba(0, 229, 255, 0.05)" }}
-                className="p-16 bg-[#020617] transition-all duration-500 group relative overflow-hidden"
+                whileHover={{ backgroundColor: "rgba(56, 189, 248, 0.05)" }}
+                className="p-10 lg:p-14 bg-brand-navy transition-all duration-500 group relative overflow-hidden"
               >
-                <div className="text-electric/30 group-hover:text-electric mb-10 transition-colors">{item.i}</div>
-                <h3 className="text-3xl font-black uppercase italic mb-6 group-hover:translate-x-2 transition-transform">{item.t}</h3>
-                <p className="text-sm text-slate-500 font-bold leading-relaxed uppercase tracking-wider">{item.d}</p>
-                <div className="absolute top-8 right-8 font-mono text-[10px] text-white/10 group-hover:text-electric transition-colors">{item.c}</div>
+                <div className="text-brand-blue/30 group-hover:text-brand-blue mb-8 transition-colors">{item.i}</div>
+                <h3 className="text-2xl lg:text-3xl font-heading font-black uppercase italic mb-6 group-hover:translate-x-2 transition-transform">{item.t}</h3>
+                <p className="text-xs text-slate-500 font-bold leading-relaxed uppercase tracking-wider">{item.d}</p>
+                <div className="absolute top-8 right-8 font-mono text-[10px] text-white/10 group-hover:text-brand-yellow transition-colors font-black">SYS_{item.c}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* --- 3. THE VISUAL LAB (IMAGE & SPECS) --- */}
-      <section className="py-32 bg-white/[0.01] border-y border-white/5">
-        <div className="container mx-auto px-6 grid lg:grid-cols-12 gap-24 items-center">
-          <div className="lg:col-span-5 space-y-12">
-            <div className="space-y-4">
-              <h4 className="text-electric font-black italic tracking-widest text-sm uppercase flex items-center gap-2">
-                 <BiCommand /> Hardware_Interface
-              </h4>
-              <h2 className="text-6xl font-black uppercase italic leading-none">THE TOOLS OF <br/> THE TRADE.</h2>
-            </div>
-            
-            <div className="grid gap-6">
-               {[
-                 { label: "Oscilloscope", val: "4-Channel 1GHz Native" },
-                 { label: "Data Rate", val: "12MB/s Over CAN-FD" },
-                 { label: "Encryption", val: "End-to-End AES-256" }
-               ].map((spec, i) => (
-                 <div key={i} className="flex justify-between items-center py-6 border-b border-white/5 group hover:border-electric transition-colors">
-                   <span className="text-slate-500 uppercase font-black tracking-[0.3em] text-[10px]">{spec.label}</span>
-                   <span className="font-mono text-electric group-hover:text-white transition-colors">[{spec.val}]</span>
-                 </div>
-               ))}
-            </div>
-          </div>
-
-          <div className="lg:col-span-7">
-            <div className="relative aspect-video group overflow-hidden border border-white/10">
-              <img 
-                src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&q=80&w=2000" 
-                alt="Technical Diagnostic Interface" 
-                className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-60" />
-              <div className="absolute bottom-10 left-10 p-8 bg-electric text-navy">
-                 <p className="font-black italic text-2xl uppercase">Real-Time Debugging</p>
-                 <p className="text-[10px] font-bold uppercase tracking-widest mt-1">Session_ID: 882-Alpha</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- 4. MASSIVE "CASE STUDY" STATS --- */}
-      <section className="py-40">
-        <div className="container mx-auto px-6">
-           <div className="grid md:grid-cols-3 gap-12">
-              {[
-                { n: "450+", t: "Proprietary Protocols" },
-                { n: "0.01ms", t: "Signal Latency" },
-                { n: "100%", t: "Binary Integrity" }
-              ].map((stat, i) => (
-                <div key={i} className="text-center space-y-4">
-                  <motion.h3 
-                    whileInView={{ scale: [0.9, 1.1, 1] }}
-                    className="text-8xl md:text-9xl font-black italic text-white"
-                  >
-                    {stat.n}
-                  </motion.h3>
-                  <p className="text-electric font-mono uppercase tracking-[0.5em] text-xs font-bold">{stat.t}</p>
-                </div>
-              ))}
-           </div>
-        </div>
-      </section>
-
-      {/* --- 5. FINAL MASSIVE CTA --- */}
-      <section className="relative h-[90vh] flex items-center justify-center bg-electric group cursor-pointer overflow-hidden">
-        <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.87,0,0.13,1)]" />
+      {/* --- 5. FINAL CALL TO ACTION --- */}
+      <section className="relative h-[70vh] lg:h-[90vh] flex items-center justify-center bg-brand-blue group cursor-pointer overflow-hidden">
+        <div className="absolute inset-0 bg-brand-navy translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.87,0,0.13,1)]" />
         <div className="relative z-10 text-center px-6">
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="mb-8 inline-block p-4 border border-navy group-hover:border-white transition-colors"
+            className="mb-8 inline-block p-4 border border-brand-navy group-hover:border-white transition-colors"
           >
-             <HiOutlineCpuChip size={40} className="text-navy group-hover:text-white group-hover:rotate-180 transition-all duration-1000" />
+             <HiOutlineBolt size={40} className="text-brand-navy group-hover:text-white group-hover:rotate-180 transition-all duration-1000" />
           </motion.div>
-          <h2 className="text-7xl md:text-[14rem] font-black uppercase italic text-navy group-hover:text-white transition-colors duration-500 leading-[0.75] tracking-tighter">
-            UPGRADE <br /> <span className="text-navy group-hover:text-electric">COGNITION.</span>
+          <h2 className="text-6xl md:text-8xl lg:text-[12rem] font-heading font-black uppercase italic text-brand-navy group-hover:text-white transition-colors duration-500 leading-[0.75] tracking-tighter">
+            RESTORE <br /> <span className="text-brand-navy group-hover:text-brand-blue">ORIGINALITY.</span>
           </h2>
-          <div className="mt-16 flex justify-center">
-             <button className="px-16 py-8 bg-navy text-white font-black uppercase tracking-[0.6em] text-sm group-hover:bg-white group-hover:text-navy transition-all duration-500 flex items-center gap-6 shadow-2xl">
-               Run Diagnostic Sequence <HiChevronRight size={20} />
+          <div className="mt-12 lg:mt-16 flex justify-center">
+             <button className="px-10 py-6 lg:px-16 lg:py-8 bg-brand-navy text-white font-heading font-black uppercase tracking-[0.4em] text-xs lg:text-sm group-hover:bg-white group-hover:text-brand-navy transition-all duration-500 flex items-center gap-6 shadow-2xl">
+               Contact Mr. Tawiah <HiChevronRight size={20} />
              </button>
           </div>
         </div>
       </section>
-
-      {/* --- FOOTER SPEC --- */}
-      <footer className="py-10 bg-[#010411] border-t border-white/5">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] font-mono text-slate-600 tracking-[0.4em] uppercase">
-          <p>©2026 AUTO_ENGINEERING_LAB // ALL_RIGHTS_RESERVED</p>
-          <div className="flex gap-10">
-            <span className="hover:text-electric cursor-pointer">Security_Protocol</span>
-            <span className="hover:text-electric cursor-pointer">Hardware_API</span>
-            <span className="hover:text-electric cursor-pointer">Terminal_Access</span>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

@@ -1,48 +1,25 @@
 import type { Metadata } from "next";
-import { Barlow, DM_Sans } from "next/font/google";
+import { Orbitron, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/app/components/theme-provider"; 
-import Navbar from "@/app/components/shared/Navbar";
-import Footer from "@/app/components/shared/Footer";
+import ClientWrapper from "@/components/ClientWrapper";
 
-const barlow = Barlow({ 
-  subsets: ["latin"], 
-  weight: ["700", "800"], 
-  variable: "--font-barlow" 
-});
-
-const dmSans = DM_Sans({ 
-  subsets: ["latin"], 
-  weight: ["400", "500"], 
-  variable: "--font-dm-sans" 
-});
+const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-heading" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
+const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: "AUTOELECTRO | Advanced Engineering",
-  description: "Specialized Vehicle Electrical Diagnostics & Repair",
+  title: "Eagle Brain Auto Solution | ECU & TCM Programming",
+  description: "Specialized in complex automobile electronics and diagnostics.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${barlow.variable} ${dmSans.variable}`}>
-      <body className="font-body antialiased bg-white dark:bg-navy transition-colors duration-300">
-        <ThemeProvider 
-          attribute="class" 
-          defaultTheme="dark" 
-          enableSystem={false}
-        >
-          <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+    <html lang="en" className="dark">
+      <body className={`${orbitron.variable} ${inter.variable} ${jetbrains.variable} bg-brand-navy text-slate-100 antialiased`}>
+        {/* We use a ClientWrapper because the Intro state is a Client-side feature */}
+        <ClientWrapper>
+          {children}
+        </ClientWrapper>
       </body>
     </html>
   );
