@@ -76,7 +76,7 @@ export default function Home() {
               <div className="absolute -inset-4 border border-brand-blue/20 group-hover:border-brand-blue/50 transition-colors duration-700" />
               <div className="relative aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-1000">
                 <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                  src="" 
                   alt="Mr. Patrick Tawiah - Chief Engineer" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                 />
