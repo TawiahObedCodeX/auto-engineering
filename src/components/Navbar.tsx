@@ -7,7 +7,6 @@ import EagleLogo from "./Logo";
 
 const navLinks = [
   { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
   { name: "ECU Cloning", href: "/services/ecu" },
   { name: "Harness", href: "/services/harness" },
 ];
