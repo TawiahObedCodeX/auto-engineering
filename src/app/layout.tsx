@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Orbitron, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const orbitron = Orbitron({ subsets: ["latin"], variable: "--font-heading" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ClientWrapper>
           {children}
         </ClientWrapper>
+        <SpeedInsights />
       </body>
     </html>
   );
